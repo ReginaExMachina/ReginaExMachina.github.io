@@ -2,10 +2,31 @@ $main-color: grey;
 $accent-color: lightgrey;
 $emp-color: purple;
 
-body {
-
+header {
+  background-color: $emp-color;
 }
 
-nav {
+main {
+  background-color: transparent;
+}
 
+section {
+  background-color: $main-color;
+}
+
+.contact {
+  background-color: $emp-color;
+}
+
+footer {
+  background-color: $accent-color;
+}
+
+ul, li {
+  display: inline;
+}
+
+.profile-pic {
+  image-orientation: from-image;
+  image-resolution: from-image;
 }
