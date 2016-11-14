@@ -1,0 +1,75 @@
+header {
+    background-color: grey;
+    color: white;
+    padding: 4em 3em 4em 3em;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-top: 1.5em;
+}
+
+h3 {
+    font-size: 1em;
+}
+
+h4 {
+    font-size: 1em;
+}
+
+h5 {
+    font-size: 1.5em;
+    margin-top: 0.5em;
+}
+
+ul {
+    list-style: none;
+}
+
+li:before {
+    content: "\f069"; /* FontAwesome Unicode */
+    font-family: FontAwesome;
+    display: inline-block;
+    padding-right: 1em;
+}
+
+.interests li:before {
+    content: "\f08a";
+}
+
+p {
+    margin-top: -1em;
+}
+
+a {
+    text-decoration: none;
+    color: grey;
+}
+
+a:hover {
+    color: salmon;
+}
+
+a:active {
+    color: salmon;
+}
+
+a:visited {
+    color: salmon;
+}
+
+.contact {
+    
+}
+
+.exp {
+    
+}
+
+footer {
+    padding: 4em 3em 4em 3em;
+}
