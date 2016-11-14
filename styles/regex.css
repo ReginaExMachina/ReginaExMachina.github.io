@@ -6,6 +6,7 @@ header {
 
 h1 {
     font-size: 2em;
+    margin-bottom: 0.5em;
 }
 
 h2 {
@@ -24,6 +25,12 @@ h4 {
 h5 {
     font-size: 1.5em;
     margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+h6 {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
 }
 
 ul {
@@ -47,29 +54,49 @@ p {
 
 a {
     text-decoration: none;
-    color: grey;
+    color: salmon;
 }
 
 a:hover {
-    color: salmon;
+    color: white;
 }
 
 a:active {
-    color: salmon;
+    color: white;
 }
 
 a:visited {
     color: salmon;
 }
 
+i {
+  color: white;
+}
+
+i:hover {
+  color: cornflowerblue;
+}
+
 .contact {
-    
+  float: right;
 }
 
 .exp {
-    
+  margin-top: 1.5em;
 }
 
 footer {
     padding: 4em 3em 4em 3em;
+}
+
+footer i {
+  color: black;
+}
+
+.exp i {
+  color: black;
+}
+
+em {
+  font-weight: bold;
 }
