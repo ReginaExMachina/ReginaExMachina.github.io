@@ -1,5 +1,5 @@
 header {
-    background-color: grey;
+    background-color: black;
     color: white;
     padding: 4em 3em 4em 3em;
 }
@@ -74,11 +74,17 @@ i {
 }
 
 i:hover {
-  color: cornflowerblue;
+  color: goldenrod;
 }
 
+em {
+  font-weight: bold;
+}
+
+/* CLASSES */
 .contact {
   float: right;
+  padding-top: 1.5em;
 }
 
 .exp {
@@ -89,6 +95,7 @@ footer {
     padding: 4em 3em 4em 3em;
 }
 
+/* SILLY FIXES FOR SILLY PROBLEMS */
 footer i {
   color: black;
 }
@@ -97,6 +104,7 @@ footer i {
   color: black;
 }
 
-em {
-  font-weight: bold;
+.endnote {
+  background-color: black;
+  padding: 4em 3em 4em 3em;
 }
