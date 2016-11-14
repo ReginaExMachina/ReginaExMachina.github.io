@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAIA,MAAO;EACL,gBAAgB,EAHN,MAAM;;AAMlB,IAAK;EACH,gBAAgB,EAAE,WAAW;;AAG/B,OAAQ;EACN,gBAAgB,EAbL,IAAI;;AAgBjB,MAAO;EACL,gBAAgB,EAhBH,SAAS;;AAmBxB,MAAO;EACL,OAAO,EAAE,MAAM;;AAGjB,YAAa;EACX,iBAAiB,EAAE,UAAU;EAC7B,gBAAgB,EAAE,UAAU",
-"sources": ["regex.scss"],
-"names": [],
-"file": "regex.css"
-}
