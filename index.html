@@ -4,18 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rachel | ReginaExMachina</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #0f172a;
-            --card: #1e293b;
-            --text: #f1f5f9;
-            --accent: #38bdf8;
-            --secondary: #c084fc;
-            --border: #334155;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --text: #1e293b;
+            --accent: #581c87; /* Royal Plum */
+            --highlight: #a855f7; /* Lavender */
+            --border: #e2e8f0;
+            --shadow: rgba(88, 28, 135, 0.08);
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', sans-serif;
             background-color: var(--bg);
             color: var(--text);
             line-height: 1.6;
@@ -26,91 +28,129 @@
         .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 60px 20px;
         }
 
         header {
-            text-align: center;
-            margin-bottom: 60px;
+            text-align: left;
+            margin-bottom: 80px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 40px;
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
             color: var(--accent);
-            margin-bottom: 10px;
+            margin: 0;
+            font-style: italic;
         }
 
         .subtitle {
-            font-size: 1.1rem;
-            color: var(--secondary);
-            font-weight: 300;
+            font-size: 1.2rem;
+            color: var(--highlight);
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         section {
-            margin-bottom: 50px;
+            margin-bottom: 60px;
         }
 
         h2 {
-            border-left: 4px solid var(--accent);
-            padding-left: 15px;
-            font-size: 1.5rem;
-            margin-bottom: 25px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        h2::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+            margin-left: 20px;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
         }
 
         .card {
             background: var(--card);
             border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 20px;
-            transition: transform 0.2s, border-color 0.2s;
+            border-radius: 4px; /* Sharper corners for a more "fancy/editorial" look */
+            padding: 30px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 0px var(--border);
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
+            transform: translateY(-4px);
+            border-color: var(--highlight);
+            box-shadow: 0 12px 24px var(--shadow);
         }
 
         .card h3 {
             margin-top: 0;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
             color: var(--accent);
         }
 
         .card p {
             font-size: 0.95rem;
-            color: #cbd5e1;
+            color: #475569;
         }
 
         .tag {
-            display: inline-block;
-            background: rgba(56, 189, 248, 0.1);
-            color: var(--accent);
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            margin-top: 10px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--highlight);
+            text-transform: uppercase;
+            margin-right: 10px;
+            border-bottom: 1px solid transparent;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
+        .card:hover .tag {
+            border-bottom: 1px solid var(--highlight);
         }
 
-        .upcoming {
-            background: linear-gradient(135deg, #1e293b 0%, #312e81 100%);
-            border: 1px solid var(--secondary);
+        .upcoming-section {
+            background: #fdf4ff; /* Very faint purple tint */
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px dashed var(--highlight);
+        }
+
+        .witty-note {
+            font-style: italic;
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-top: 20px;
         }
 
         footer {
-            text-align: center;
-            margin-top: 80px;
-            font-size: 0.8rem;
-            color: #64748b;
+            text-align: left;
+            margin-top: 100px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        /* Subtle flourish */
+        .fancy-ampersand {
+            font-family: 'Playfair Display', serif;
+            color: var(--highlight);
+            font-style: italic;
         }
     </style>
 </head>
@@ -118,64 +158,57 @@
 
 <div class="container">
     <header>
+        <p class="subtitle">QA Engineer <span class="fancy-ampersand">&</span> Creative Developer</p>
         <h1>Rachel Day</h1>
-        <p class="subtitle">QA Engineer | Game Developer | Data Enthusiast</p>
+        <p class="witty-note">Breaking software professionally by day; building worlds (and detecting animals) by night.</p>
     </header>
 
     <section>
-        <h2>Machine Learning & AI</h2>
+        <h2>Intelligence <span class="fancy-ampersand">&</span> Analysis</h2>
         <div class="grid">
             <a href="https://github.com/ReginaExMachina/animal-detection-model" target="_blank" class="card">
                 <h3>Animal Detection Model</h3>
-                <p>Implementation of pretrained TensorFlow.js models for real-time animal detection and classification.</p>
+                <p>Deploying TensorFlow.js to distinguish between the wild and the domestic. A study in real-time classification.</p>
                 <span class="tag">TensorFlow.js</span> <span class="tag">TypeScript</span>
             </a>
-        </div>
-    </section>
-
-    <section>
-        <h2>Data Analysis</h2>
-        <div class="grid">
             <a href="https://github.com/ReginaExMachina/analyzing-movie-profitability" target="_blank" class="card">
-                <h3>Movie Profitability</h3>
-                <p>Exploring the factors that drive financial success in the film industry using data-driven insights.</p>
+                <h3>The Business of Cinema</h3>
+                <p>A data-driven investigation into what makes a movie profitable (besides just adding more explosions).</p>
                 <span class="tag">Python</span> <span class="tag">Data Analysis</span>
             </a>
             <a href="https://github.com/ReginaExMachina/data_sci" target="_blank" class="card">
                 <h3>Data Science Hub</h3>
-                <p>A collection of notebooks and scripts focused on statistical modeling and data exploration.</p>
-                <span class="tag">Jupyter</span> <span class="tag">NumPy/Pandas</span>
+                <p>A collection of statistical models and exploratory scripts. Clean code for messy data.</p>
+                <span class="tag">Jupyter</span> <span class="tag">Pandas</span>
             </a>
         </div>
     </section>
 
     <section>
-        <h2>Game Development</h2>
+        <h2>Worlds <span class="fancy-ampersand">&</span> Play</h2>
         <div class="grid">
             <a href="https://github.com/TempestTech/Untold-Island" target="_blank" class="card">
                 <h3>Untold Island</h3>
-                <p>A single-player adventure game developed with a focus on immersive storytelling and mechanics.</p>
-                <span class="tag">C#</span> <span class="tag">Game Design</span>
+                <p>An adventure game focused on narrative immersion. Where storytelling meets technical execution.</p>
+                <span class="tag">C#</span> <span class="tag">Unity</span>
             </a>
             <a href="https://github.com/ReginaExMachina/GAM537_A1" target="_blank" class="card">
-                <h3>Technical Game Projects</h3>
-                <p>Portfolio of academic game development projects focusing on core engine principles.</p>
+                <h3>Academic Engineering</h3>
+                <p>Core game engine principles and technical assignments from the archives of my game dev journey.</p>
                 <span class="tag">C++ / C#</span>
             </a>
         </div>
     </section>
 
-    <section>
-        <h2>Upcoming Projects</h2>
-        <div class="card upcoming">
-            <h3>Solo Unity Project (Title TBA)</h3>
-            <p>Currently developing an unannounced indie title in Unity. Focusing on a rigorous "QA-first" development cycle using <strong>Playwright</strong> for automated gameplay verification.</p>
-            <span class="tag">Unity</span> <span class="tag">Playwright</span> <span class="tag">In Progress</span>
-        </div>
+    <section class="upcoming-section">
+        <h2>Currently Brewing</h2>
+        <h3>Unannounced Solo Project</h3>
+        <p>A new Unity title currently in development. It is being built with a "QA-First" philosophy—leveraging **Playwright** for gameplay verification and state testing. Because if it's not tested, it's not finished.</p>
+        <span class="tag">Unity</span> <span class="tag">Playwright</span> <span class="tag">Stealth Mode</span>
     </section>
 
     <footer>
-        <p>&copy; 2026 ReginaExMachina | Built with code, coffee, and care.</p>
+        <p>ReginaExMachina. &copy; 2026. Designed for clarity, coded for stability.</p>
     </footer>
 </div>
 
