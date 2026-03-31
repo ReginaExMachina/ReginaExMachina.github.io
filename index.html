@@ -1,45 +1,183 @@
 <!DOCTYPE html>
-
 <html lang="en">
-	<head>
-  		<meta charset="utf-8">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rachel | ReginaExMachina</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card: #1e293b;
+            --text: #f1f5f9;
+            --accent: #38bdf8;
+            --secondary: #c084fc;
+            --border: #334155;
+        }
 
-  		<title>Rachel Day</title>
-  		<meta name="description" content="Resume Site">
-  		<meta name="author" content="Rachel Day">
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
 
-  		<link rel="stylesheet" href="css/scaffold.css">
-  		<link rel="stylesheet" href="css/resume.css">
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
 
-	</head>
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
 
-	<body>
-		<nav>
-			RD
-			About Me
-			Portfolio
-			Contact
-		</nav>
-		<main>
-			<div class="container">
-				<div class="row">
-					<div class="col-6 center name">
-						<h1>Rachel Day</h1>
-					</div>
-					<div class="col-6 center">
-						<h2>Under Construction</h2>
+        h1 {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
 
-					</div>
-				</div>
-			</div>
-			<section class="portfolio">
-			</section>
-			<section class="about-me">
-			</section>
-		</main>
-		<footer>
-			Contact Me
-		</footer>
-	</body>
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--secondary);
+            font-weight: 300;
+        }
 
+        section {
+            margin-bottom: 50px;
+        }
+
+        h2 {
+            border-left: 4px solid var(--accent);
+            padding-left: 15px;
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--accent);
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #cbd5e1;
+        }
+
+        .tag {
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .upcoming {
+            background: linear-gradient(135deg, #1e293b 0%, #312e81 100%);
+            border: 1px solid var(--secondary);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 80px;
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Rachel Day</h1>
+        <p class="subtitle">QA Engineer | Game Developer | Data Enthusiast</p>
+    </header>
+
+    <section>
+        <h2>Machine Learning & AI</h2>
+        <div class="grid">
+            <a href="https://github.com/ReginaExMachina/animal-detection-model" target="_blank" class="card">
+                <h3>Animal Detection Model</h3>
+                <p>Implementation of pretrained TensorFlow.js models for real-time animal detection and classification.</p>
+                <span class="tag">TensorFlow.js</span> <span class="tag">TypeScript</span>
+            </a>
+        </div>
+    </section>
+
+    <section>
+        <h2>Data Analysis</h2>
+        <div class="grid">
+            <a href="https://github.com/ReginaExMachina/analyzing-movie-profitability" target="_blank" class="card">
+                <h3>Movie Profitability</h3>
+                <p>Exploring the factors that drive financial success in the film industry using data-driven insights.</p>
+                <span class="tag">Python</span> <span class="tag">Data Analysis</span>
+            </a>
+            <a href="https://github.com/ReginaExMachina/data_sci" target="_blank" class="card">
+                <h3>Data Science Hub</h3>
+                <p>A collection of notebooks and scripts focused on statistical modeling and data exploration.</p>
+                <span class="tag">Jupyter</span> <span class="tag">NumPy/Pandas</span>
+            </a>
+        </div>
+    </section>
+
+    <section>
+        <h2>Game Development</h2>
+        <div class="grid">
+            <a href="https://github.com/TempestTech/Untold-Island" target="_blank" class="card">
+                <h3>Untold Island</h3>
+                <p>A single-player adventure game developed with a focus on immersive storytelling and mechanics.</p>
+                <span class="tag">C#</span> <span class="tag">Game Design</span>
+            </a>
+            <a href="https://github.com/ReginaExMachina/GAM537_A1" target="_blank" class="card">
+                <h3>Technical Game Projects</h3>
+                <p>Portfolio of academic game development projects focusing on core engine principles.</p>
+                <span class="tag">C++ / C#</span>
+            </a>
+        </div>
+    </section>
+
+    <section>
+        <h2>Upcoming Projects</h2>
+        <div class="card upcoming">
+            <h3>Solo Unity Project (Title TBA)</h3>
+            <p>Currently developing an unannounced indie title in Unity. Focusing on a rigorous "QA-first" development cycle using <strong>Playwright</strong> for automated gameplay verification.</p>
+            <span class="tag">Unity</span> <span class="tag">Playwright</span> <span class="tag">In Progress</span>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 ReginaExMachina | Built with code, coffee, and care.</p>
+    </footer>
+</div>
+
+</body>
 </html>
