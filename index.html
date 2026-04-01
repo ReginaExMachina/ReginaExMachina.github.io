@@ -3,181 +3,314 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rachel | ReginaExMachina</title>
+    <title>Rachel Day | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,900;1,400&family=Montserrat:wght@200;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #0f172a;
-            --card: #1e293b;
-            --text: #f1f5f9;
-            --accent: #38bdf8;
-            --secondary: #c084fc;
-            --border: #334155;
+            --cream: #fdfdfa;
+            --crimson: #7a0000;
+            --gold: #b8860b;
+            --charcoal: #121212;
+            --glass: rgba(255, 253, 250, 0.8);
+            --gold-glow: rgba(184, 134, 11, 0.15);
         }
+
+        * { box-sizing: border-box; scroll-behavior: smooth; }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--cream);
+            background-image: radial-gradient(var(--border) 1px, transparent 1px);
+            background-size: 40px 40px;
+            color: var(--charcoal);
             margin: 0;
-            padding: 0;
+            overflow-x: hidden;
         }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
+        /* The "Floating Ribbon" Header */
         header {
-            text-align: center;
-            margin-bottom: 60px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(184, 134, 11, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 60px;
+            z-index: 1000;
         }
 
-        h1 {
-            font-size: 2.5rem;
-            color: var(--accent);
-            margin-bottom: 10px;
+        .logo {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            color: var(--crimson);
+            font-weight: 900;
+            text-decoration: none;
         }
 
-        .subtitle {
-            font-size: 1.1rem;
-            color: var(--secondary);
-            font-weight: 300;
+        .header-contact a {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--charcoal);
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 700;
+            transition: 0.3s;
+            border-bottom: 1px solid transparent;
         }
 
-        section {
-            margin-bottom: 50px;
+        .header-contact a:hover { color: var(--gold); border-bottom: 1px solid var(--gold); }
+
+        /* Hero Section */
+        .hero {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 10%;
+            margin-top: 60px;
+            border-bottom: 1px solid rgba(184, 134, 11, 0.1);
         }
 
-        h2 {
-            border-left: 4px solid var(--accent);
-            padding-left: 15px;
-            font-size: 1.5rem;
-            margin-bottom: 25px;
+        .hero h1 {
+            font-family: 'Bodoni Moda', serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            margin: 0;
+            color: var(--crimson);
+            line-height: 0.9;
+            font-weight: 900;
         }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        .hero .tagline {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            margin-top: 20px;
+            color: var(--gold);
+            font-weight: 400;
+        }
+
+        .nav-pills {
+            margin-top: 40px;
+            display: flex;
             gap: 20px;
         }
 
-        .card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 20px;
-            transition: transform 0.2s, border-color 0.2s;
+        .nav-pills a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 10px 20px;
+            border: 1px solid var(--charcoal);
+            transition: 0.4s;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
+        .nav-pills a:hover {
+            background: var(--crimson);
+            color: white;
+            border-color: var(--crimson);
         }
 
-        .card h3 {
-            margin-top: 0;
-            color: var(--accent);
+        /* Bento Grid Projects */
+        .container { padding: 80px 10%; }
+
+        .section-label {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--crimson);
+            display: flex;
+            align-items: center;
+            gap: 20px;
         }
 
-        .card p {
-            font-size: 0.95rem;
-            color: #cbd5e1;
+        .section-label::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, var(--gold), transparent);
         }
 
-        .tag {
-            display: inline-block;
-            background: rgba(56, 189, 248, 0.1);
-            color: var(--accent);
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            margin-top: 10px;
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 30px;
+            margin-bottom: 100px;
         }
 
-        a {
+        .project-card {
+            grid-column: span 6;
+            background: #fff;
+            padding: 50px;
             text-decoration: none;
             color: inherit;
+            border: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            overflow: hidden;
         }
 
-        .upcoming {
-            background: linear-gradient(135deg, #1e293b 0%, #312e81 100%);
-            border: 1px solid var(--secondary);
+        /* Asymmetric Layouts */
+        .card-wide { grid-column: span 8; }
+        .card-slim { grid-column: span 4; }
+
+        .project-card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, var(--gold-glow) 0%, transparent 100%);
+            opacity: 0;
+            transition: 0.4s;
+        }
+
+        .project-card:hover {
+            transform: scale(1.02);
+            border-color: var(--gold);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.05);
+        }
+
+        .project-card:hover::before { opacity: 1; }
+
+        .project-card h3 {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 2rem;
+            margin: 0;
+            z-index: 1;
+        }
+
+        .project-card p {
+            font-size: 0.95rem;
+            font-weight: 300;
+            margin: 20px 0;
+            z-index: 1;
+        }
+
+        .tech-list {
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--gold);
+            z-index: 1;
+        }
+
+        /* Pipeline Visual */
+        .pipeline-container {
+            border-left: 1px solid var(--gold);
+            padding: 60px;
+            margin-top: 100px;
+        }
+
+        .pipeline-tag {
+            background: var(--crimson);
+            color: white;
+            padding: 5px 15px;
+            font-size: 0.6rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 20px;
         }
 
         footer {
+            padding: 100px 10%;
+            background: var(--charcoal);
+            color: var(--cream);
             text-align: center;
-            margin-top: 80px;
-            font-size: 0.8rem;
-            color: #64748b;
+            font-size: 0.7rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 900px) {
+            .project-card, .card-wide, .card-slim { grid-column: span 12; }
+            header { padding: 15px 20px; }
+            .hero { padding: 0 5%; }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <header>
-        <h1>Rachel Day</h1>
-        <p class="subtitle">QA Engineer | Game Developer | Data Enthusiast</p>
-    </header>
+<header>
+    <a href="#" class="logo">R.D</a>
+    <div class="header-contact">
+        <a href="mailto:rachel.day.pro@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/dayrachel" target="_blank">LinkedIn</a>
+        <a href="https://github.com/ReginaExMachina" target="_blank">GitHub</a>
+    </div>
+</header>
 
-    <section>
-        <h2>Machine Learning & AI</h2>
-        <div class="grid">
-            <a href="https://github.com/ReginaExMachina/animal-detection-model" target="_blank" class="card">
-                <h3>Animal Detection Model</h3>
-                <p>Implementation of pretrained TensorFlow.js models for real-time animal detection and classification.</p>
-                <span class="tag">TensorFlow.js</span> <span class="tag">TypeScript</span>
-            </a>
-        </div>
-    </section>
-
-    <section>
-        <h2>Data Analysis</h2>
-        <div class="grid">
-            <a href="https://github.com/ReginaExMachina/analyzing-movie-profitability" target="_blank" class="card">
-                <h3>Movie Profitability</h3>
-                <p>Exploring the factors that drive financial success in the film industry using data-driven insights.</p>
-                <span class="tag">Python</span> <span class="tag">Data Analysis</span>
-            </a>
-            <a href="https://github.com/ReginaExMachina/data_sci" target="_blank" class="card">
-                <h3>Data Science Hub</h3>
-                <p>A collection of notebooks and scripts focused on statistical modeling and data exploration.</p>
-                <span class="tag">Jupyter</span> <span class="tag">NumPy/Pandas</span>
-            </a>
-        </div>
-    </section>
-
-    <section>
-        <h2>Game Development</h2>
-        <div class="grid">
-            <a href="https://github.com/TempestTech/Untold-Island" target="_blank" class="card">
-                <h3>Untold Island</h3>
-                <p>A single-player adventure game developed with a focus on immersive storytelling and mechanics.</p>
-                <span class="tag">C#</span> <span class="tag">Game Design</span>
-            </a>
-            <a href="https://github.com/ReginaExMachina/GAM537_A1" target="_blank" class="card">
-                <h3>Technical Game Projects</h3>
-                <p>Portfolio of academic game development projects focusing on core engine principles.</p>
-                <span class="tag">C++ / C#</span>
-            </a>
-        </div>
-    </section>
-
-    <section>
-        <h2>Upcoming Projects</h2>
-        <div class="card upcoming">
-            <h3>Solo Unity Project (Title TBA)</h3>
-            <p>Currently developing an unannounced indie title in Unity. Focusing on a rigorous "QA-first" development cycle using <strong>Playwright</strong> for automated gameplay verification.</p>
-            <span class="tag">Unity</span> <span class="tag">Playwright</span> <span class="tag">In Progress</span>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 ReginaExMachina | Built with code, coffee, and care.</p>
-    </footer>
+<div class="hero">
+    <h1>Rachel Day</h1>
+    <div class="tagline">QA Engineer &bull; Game Developer &bull; Data Enthusiast</div>
+    <div class="nav-pills">
+        <a href="#ml">Intelligence</a>
+        <a href="#data">Analysis</a>
+        <a href="#gamedev">Worlds</a>
+    </div>
 </div>
+
+<div class="container">
+    
+    <section id="ml">
+        <div class="section-label">Machine Learning & AI</div>
+        <div class="bento-grid">
+            <a href="https://github.com/ReginaExMachina/animal-detection-model" target="_blank" class="project-card card-wide">
+                <h3>Animal Detection Model</h3>
+                <p>Deploying TensorFlow.js to distinguish between the wild and the domestic. A study in real-time classification where precision meets computer vision.</p>
+                <div class="tech-list">TensorFlow.js &bull; TypeScript &bull; Research</div>
+            </a>
+        </div>
+    </section>
+
+    <section id="data">
+        <div class="section-label">Data Analysis</div>
+        <div class="bento-grid">
+            <a href="https://github.com/ReginaExMachina/analyzing-movie-profitability" target="_blank" class="project-card card-wide" style="grid-column: span 12;">
+                <h3>The Business of Cinema</h3>
+                <p>A data-driven investigation into what makes a movie profitable. Leveraging comprehensive Jupyter notebooks for statistical modeling and exploratory data analysis to uncover industry trends.</p>
+                <div class="tech-list">Python &bull; Pandas &bull; Jupyter &bull; Visualization</div>
+            </a>
+        </div>
+    </section>
+
+    <section id="gamedev">
+        <div class="section-label">Game Development</div>
+        <div class="bento-grid">
+            <a href="https://github.com/TempestTech/Untold-Island" target="_blank" class="project-card card-slim">
+                <h3>Untold Island</h3>
+                <p>A single-player adventure focusing on narrative immersion. Developed in Unity as a collaborative team project.</p>
+                <div class="tech-list">C# &bull; Unity &bull; Team</div>
+            </a>
+            <a href="https://github.com/ReginaExMachina/GAM537_A1" target="_blank" class="project-card card-wide">
+                <h3>Technical Game Systems</h3>
+                <p>A collaborative Unreal Engine project featuring advanced software architecture and core engine mechanics implemented in C++.</p>
+                <div class="tech-list">Unreal &bull; C++ &bull; Collaborative</div>
+            </a>
+        </div>
+    </section>
+
+    <div id="pipeline" class="pipeline-container">
+        <div class="pipeline-tag">In Development</div>
+        <h2 style="font-family: 'Bodoni Moda', serif; font-size: 3rem; margin: 0;">Unannounced Solo Project</h2>
+        <p style="max-width: 600px; font-weight: 300;">Currently developing a Unity title with a rigorous QA-first approach. Using <strong>Playwright</strong> for automated gameplay verification to ensure production-level stability from day one.</p>
+        <div class="tech-list">Unity &bull; Playwright &bull; C#</div>
+    </div>
+
+</div>
+
+<footer>
+    Regina Ex Machina &bull; MMXXVI
+</footer>
 
 </body>
 </html>
