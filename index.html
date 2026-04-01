@@ -11,8 +11,8 @@
             --crimson: #7a0000;
             --gold: #b8860b;
             --charcoal: #121212;
-            --glass: rgba(255, 253, 250, 0.8);
-            --gold-glow: rgba(184, 134, 11, 0.15);
+            --glass: rgba(255, 253, 250, 0.9);
+            --border: rgba(184, 134, 11, 0.2);
         }
 
         * { box-sizing: border-box; scroll-behavior: smooth; }
@@ -20,35 +20,32 @@
         body {
             font-family: 'Montserrat', sans-serif;
             background-color: var(--cream);
-            background-image: radial-gradient(var(--border) 1px, transparent 1px);
-            background-size: 40px 40px;
             color: var(--charcoal);
             margin: 0;
             overflow-x: hidden;
         }
 
-        /* The "Floating Ribbon" Header */
         header {
             position: fixed;
             top: 0;
             width: 100%;
             background: var(--glass);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(184, 134, 11, 0.2);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 60px;
+            padding: 20px 60px;
             z-index: 1000;
         }
 
-        .logo {
+        .header-logo {
             font-family: 'Bodoni Moda', serif;
-            font-size: 1.8rem;
-            font-style: italic;
+            font-size: 1.2rem;
+            letter-spacing: 5px;
             color: var(--crimson);
-            font-weight: 900;
             text-decoration: none;
+            font-weight: 900;
         }
 
         .header-contact a {
@@ -60,188 +57,163 @@
             margin-left: 25px;
             font-weight: 700;
             transition: 0.3s;
-            border-bottom: 1px solid transparent;
         }
 
-        .header-contact a:hover { color: var(--gold); border-bottom: 1px solid var(--gold); }
+        .header-contact a:hover { color: var(--crimson); }
 
-        /* Hero Section */
         .hero {
-            height: 60vh;
+            height: 45vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             padding: 0 10%;
-            margin-top: 60px;
-            border-bottom: 1px solid rgba(184, 134, 11, 0.1);
+            margin-top: 80px;
         }
 
         .hero h1 {
             font-family: 'Bodoni Moda', serif;
-            font-size: clamp(3rem, 8vw, 6rem);
+            font-size: clamp(3rem, 10vw, 7rem);
             margin: 0;
             color: var(--crimson);
-            line-height: 0.9;
+            line-height: 0.85;
             font-weight: 900;
+            font-style: italic;
         }
 
-        .hero .tagline {
-            font-size: 1rem;
+        .hero .subtitle {
+            font-size: 0.9rem;
             text-transform: uppercase;
-            letter-spacing: 8px;
-            margin-top: 20px;
+            letter-spacing: 6px;
+            margin-top: 25px;
             color: var(--gold);
             font-weight: 400;
         }
 
-        .nav-pills {
-            margin-top: 40px;
+        .nav-bar {
+            padding: 0 10%;
             display: flex;
-            gap: 20px;
+            gap: 15px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
         }
 
-        .nav-pills a {
+        .nav-bar a {
             text-decoration: none;
-            color: var(--charcoal);
-            font-size: 0.7rem;
+            color: var(--crimson);
+            font-size: 0.65rem;
             text-transform: uppercase;
             letter-spacing: 2px;
+            font-weight: 700;
             padding: 10px 20px;
-            border: 1px solid var(--charcoal);
-            transition: 0.4s;
+            border: 1px solid var(--crimson);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            background: transparent;
         }
 
-        .nav-pills a:hover {
+        .nav-bar a:hover {
             background: var(--crimson);
-            color: white;
-            border-color: var(--crimson);
+            color: var(--cream);
+            border-color: var(--gold);
+            box-shadow: 0 10px 20px rgba(122, 0, 0, 0.15);
+            transform: translateY(-2px);
         }
 
-        /* Bento Grid Projects */
-        .container { padding: 80px 10%; }
+        .container { padding: 0 10% 100px 10%; }
 
-        .section-label {
+        .section-header {
             font-family: 'Bodoni Moda', serif;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
+            font-size: 2.2rem;
+            margin: 80px 0 40px 0;
             color: var(--crimson);
             display: flex;
             align-items: center;
             gap: 20px;
         }
 
-        .section-label::after {
+        .section-header::after {
             content: "";
             flex: 1;
             height: 1px;
-            background: linear-gradient(to right, var(--gold), transparent);
+            background: linear-gradient(to right, var(--border), transparent);
         }
 
         .bento-grid {
             display: grid;
             grid-template-columns: repeat(12, 1fr);
             gap: 30px;
-            margin-bottom: 100px;
         }
 
-        .project-card {
+        .card {
             grid-column: span 6;
-            background: #fff;
+            background: white;
             padding: 50px;
+            border: 1px solid var(--border);
             text-decoration: none;
             color: inherit;
-            border: 1px solid #eee;
+            transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-            position: relative;
-            overflow: hidden;
         }
 
-        /* Asymmetric Layouts */
-        .card-wide { grid-column: span 8; }
-        .card-slim { grid-column: span 4; }
-
-        .project-card::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(135deg, var(--gold-glow) 0%, transparent 100%);
-            opacity: 0;
-            transition: 0.4s;
-        }
-
-        .project-card:hover {
-            transform: scale(1.02);
+        .card:hover {
+            transform: translateY(-10px);
             border-color: var(--gold);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.05);
+            box-shadow: 0 30px 60px rgba(122, 0, 0, 0.05);
         }
 
-        .project-card:hover::before { opacity: 1; }
-
-        .project-card h3 {
+        .card h3 {
             font-family: 'Bodoni Moda', serif;
-            font-size: 2rem;
-            margin: 0;
-            z-index: 1;
+            font-size: 1.8rem;
+            margin: 0 0 20px 0;
+            color: var(--charcoal);
         }
 
-        .project-card p {
+        .card p {
             font-size: 0.95rem;
             font-weight: 300;
-            margin: 20px 0;
-            z-index: 1;
+            line-height: 1.7;
+            margin-bottom: 30px;
         }
 
-        .tech-list {
-            font-size: 0.65rem;
+        .tech {
+            font-size: 0.6rem;
             letter-spacing: 2px;
             text-transform: uppercase;
             font-weight: 700;
             color: var(--gold);
-            z-index: 1;
         }
 
-        /* Pipeline Visual */
-        .pipeline-container {
-            border-left: 1px solid var(--gold);
+        .wip-hero {
+            grid-column: span 12;
+            background: #fff;
+            border: 1px dashed var(--gold);
             padding: 60px;
-            margin-top: 100px;
-        }
-
-        .pipeline-tag {
-            background: var(--crimson);
-            color: white;
-            padding: 5px 15px;
-            font-size: 0.6rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            display: inline-block;
-            margin-bottom: 20px;
+            text-align: center;
         }
 
         footer {
-            padding: 100px 10%;
+            padding: 80px 10%;
             background: var(--charcoal);
-            color: var(--cream);
             text-align: center;
-            font-size: 0.7rem;
-            letter-spacing: 5px;
+            font-size: 0.65rem;
+            letter-spacing: 4px;
             text-transform: uppercase;
+            color: var(--cream);
+            border-top: 5px solid var(--crimson);
         }
 
         @media (max-width: 900px) {
-            .project-card, .card-wide, .card-slim { grid-column: span 12; }
-            header { padding: 15px 20px; }
-            .hero { padding: 0 5%; }
+            .card { grid-column: span 12; }
+            header { padding: 20px; }
+            .hero h1 { font-size: 4rem; }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <a href="#" class="logo">R.D</a>
+    <a href="#" class="header-logo">R · X · M</a>
     <div class="header-contact">
         <a href="mailto:rachel.day.pro@gmail.com">Email</a>
         <a href="https://www.linkedin.com/in/dayrachel" target="_blank">LinkedIn</a>
@@ -251,60 +223,66 @@
 
 <div class="hero">
     <h1>Rachel Day</h1>
-    <div class="tagline">QA Engineer &bull; Game Developer &bull; Data Enthusiast</div>
-    <div class="nav-pills">
-        <a href="#ml">Intelligence</a>
-        <a href="#data">Analysis</a>
-        <a href="#gamedev">Worlds</a>
-    </div>
+    <div class="subtitle">QA Engineer | Game Developer | Data Enthusiast</div>
 </div>
+
+<nav class="nav-bar">
+    <a href="#ml">Machine Learning & AI</a>
+    <a href="#data">Data Analysis</a>
+    <a href="#gamedev">Game Development</a>
+    <a href="#active">Active Projects</a>
+</nav>
 
 <div class="container">
     
     <section id="ml">
-        <div class="section-label">Machine Learning & AI</div>
+        <div class="section-header">Machine Learning & AI</div>
         <div class="bento-grid">
-            <a href="https://github.com/ReginaExMachina/animal-detection-model" target="_blank" class="project-card card-wide">
+            <a href="https://github.com/ReginaExMachina/animal-detection-model" target="_blank" class="card" style="grid-column: span 12;">
                 <h3>Animal Detection Model</h3>
                 <p>Deploying TensorFlow.js to distinguish between the wild and the domestic. A study in real-time classification where precision meets computer vision.</p>
-                <div class="tech-list">TensorFlow.js &bull; TypeScript &bull; Research</div>
+                <div class="tech">TensorFlow.js &bull; TypeScript</div>
             </a>
         </div>
     </section>
 
     <section id="data">
-        <div class="section-label">Data Analysis</div>
+        <div class="section-header">Data Analysis</div>
         <div class="bento-grid">
-            <a href="https://github.com/ReginaExMachina/analyzing-movie-profitability" target="_blank" class="project-card card-wide" style="grid-column: span 12;">
+            <a href="https://github.com/ReginaExMachina/analyzing-movie-profitability" target="_blank" class="card" style="grid-column: span 12;">
                 <h3>The Business of Cinema</h3>
-                <p>A data-driven investigation into what makes a movie profitable. Leveraging comprehensive Jupyter notebooks for statistical modeling and exploratory data analysis to uncover industry trends.</p>
-                <div class="tech-list">Python &bull; Pandas &bull; Jupyter &bull; Visualization</div>
+                <p>A data-driven investigation into what makes a movie profitable. Includes comprehensive Jupyter notebooks for statistical modeling and exploratory data analysis.</p>
+                <div class="tech">Python &bull; Pandas &bull; Jupyter &bull; Visualization</div>
             </a>
         </div>
     </section>
 
     <section id="gamedev">
-        <div class="section-label">Game Development</div>
+        <div class="section-header">Game Development</div>
         <div class="bento-grid">
-            <a href="https://github.com/TempestTech/Untold-Island" target="_blank" class="project-card card-slim">
+            <a href="https://github.com/TempestTech/Untold-Island" target="_blank" class="card">
                 <h3>Untold Island</h3>
-                <p>A single-player adventure focusing on narrative immersion. Developed in Unity as a collaborative team project.</p>
-                <div class="tech-list">C# &bull; Unity &bull; Team</div>
+                <p>A single-player adventure game developed as a collaborative team effort. Focused on immersive narrative mechanics and integrated technical systems.</p>
+                <div class="tech">C# &bull; Unity &bull; Collaborative</div>
             </a>
-            <a href="https://github.com/ReginaExMachina/GAM537_A1" target="_blank" class="project-card card-wide">
-                <h3>Technical Game Systems</h3>
-                <p>A collaborative Unreal Engine project featuring advanced software architecture and core engine mechanics implemented in C++.</p>
-                <div class="tech-list">Unreal &bull; C++ &bull; Collaborative</div>
+            <a href="https://github.com/ReginaExMachina/GAM537_A1" target="_blank" class="card">
+                <h3>Labyrinthine</h3>
+                <p>A short adventure title developed in Unreal Engine. Featuring custom-designed mazes and collaborative gameplay systems using prefab asset integration.</p>
+                <div class="tech">Unreal Engine &bull; Blueprints &bull; Collaborative</div>
             </a>
         </div>
     </section>
 
-    <div id="pipeline" class="pipeline-container">
-        <div class="pipeline-tag">In Development</div>
-        <h2 style="font-family: 'Bodoni Moda', serif; font-size: 3rem; margin: 0;">Unannounced Solo Project</h2>
-        <p style="max-width: 600px; font-weight: 300;">Currently developing a Unity title with a rigorous QA-first approach. Using <strong>Playwright</strong> for automated gameplay verification to ensure production-level stability from day one.</p>
-        <div class="tech-list">Unity &bull; Playwright &bull; C#</div>
-    </div>
+    <section id="active">
+        <div class="section-header">Active Projects</div>
+        <div class="bento-grid">
+            <div class="wip-hero">
+                <h3 style="font-family: 'Bodoni Moda', serif; font-size: 2.5rem; color: var(--crimson); margin-bottom: 20px;">Solo Unity Project</h3>
+                <p style="max-width: 700px; margin: 0 auto 30px auto; font-weight: 300;">Currently developing an indie title in Unity. Focusing on a rigorous "QA-first" development cycle using Playwright for automated gameplay verification.</p>
+                <div class="tech">Unity &bull; C# &bull; Playwright &bull; In Development</div>
+            </div>
+        </div>
+    </section>
 
 </div>
 
