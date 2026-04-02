@@ -8,6 +8,31 @@ const TARGET_URL = 'https://reginaexmachina.github.io/';
  */
 test.describe('Rachel Day Portfolio - TS Validation', () => {
 
+  test('header should match the visual baseline', async ({ page }) => {
+    // We target the header specifically to ensure branding and alignment stay consistent
+    const header = page.locator('header');
+    
+    // The first time you run this, Playwright will create a "gold" image.
+    // Future runs will compare against it.
+    await expect(header).toHaveScreenshot('header-baseline.png', {
+      threshold: 0.2, // Adjusts sensitivity to minor anti-aliasing differences
+    });
+  });
+
+  test('hero section visual check', async ({ page }) => {
+    const hero = page.locator('.hero');
+    await expect(hero).toHaveScreenshot('hero-baseline.png');
+  });
+
+  test('mobile layout check', async ({ page }) => {
+    // Force the viewport to a mobile size to test our new Media Query
+    await page.setViewportSize({ width: 375, height: 667 });
+    
+    // Verify the header stacks correctly without overlapping text
+    const header = page.locator('header');
+    await expect(header).toHaveScreenshot('header-mobile-baseline.png');
+  });
+
   test.beforeEach(async ({ page }: { page: Page }) => {
     await page.goto(TARGET_URL);
   });
