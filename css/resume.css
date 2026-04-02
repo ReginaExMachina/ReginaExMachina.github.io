@@ -200,3 +200,34 @@
             header { padding: 20px; }
             .hero h1 { font-size: 4rem; }
         }
+
+@media screen and (max-width: 600px) {
+    header {
+        flex-direction: column; /* Stack logo and links */
+        gap: 15px;
+        padding: 15px 10px;
+        text-align: center;
+        height: auto;
+    }
+
+    .header-logo {
+        letter-spacing: 3px; /* Slightly tighter for small screens */
+        font-size: 1.1rem;
+    }
+
+    .header-contact {
+        display: flex;
+        justify-content: center;
+        gap: 15px; /* Use gap instead of margin-left */
+    }
+
+    .header-contact a {
+        margin-left: 0; /* Reset the desktop margin */
+        font-size: 0.6rem;
+    }
+
+    /* Adjust hero top margin so it doesn't hide under the taller header */
+    .hero {
+        margin-top: 120px;
+    }
+}
